@@ -1,18 +1,7 @@
-ic_1924 = Rotor.new("DMTWSILRUYQNKFEJCAZBPGXOHV")
-i_1930 = Rotor.new("EKMFLGDQVZNTOWYHXUSPAIBRCJ")
-ii_1930 = Rotor.new("AJDKSIRUXBLHWTMCQGZNPYFVOE")
-iii_1930 = Rotor.new("BDFHJLCPRTXVZNYEIWGAKMUSQO")
-iv_1938 = Rotor.new("ESOVPZJAYQUIRHXLNFTGKDCMWB")
-v_1938 = Rotor.new("VZBRGITYUPSDNHLXAWMJQOFECK")
-vi_1939 = Rotor.new("JPGVOUMFYQBENHZRDKASXLICTW")
-vii_1939 = Rotor.new("NZJHGRCXMYSWBOUFAIVLPEKQDT")
-viii_1939 = Rotor.new("FKQHTLXOCBJSPDZRAMEWNIUYGV")
-
 class Rotor
     def initialize(rotor_string)
-        @rotor_array = rotor_string.split("")
-    	#calling dup so the original rotor remains unrotated
-        @rotor_array = rotor_array.dup
+        #calling dup so the original rotor remains unrotated
+        @rotor_array = rotor_string.split("").dup
 		#Creating another to aid the reset, no reason found to make it clone rather than dup though.
         @reset_rotor = @rotor_array.dup
 		@rotor_hash = Hash.new
@@ -58,5 +47,16 @@ class Rotor
     end
 end
 
+ic_1924 = Rotor.new("DMTWSILRUYQNKFEJCAZBPGXOHV")
+i_1930 = Rotor.new("EKMFLGDQVZNTOWYHXUSPAIBRCJ")
+ii_1930 = Rotor.new("AJDKSIRUXBLHWTMCQGZNPYFVOE")
+iii_1930 = Rotor.new("BDFHJLCPRTXVZNYEIWGAKMUSQO")
+iv_1938 = Rotor.new("ESOVPZJAYQUIRHXLNFTGKDCMWB")
+v_1938 = Rotor.new("VZBRGITYUPSDNHLXAWMJQOFECK")
+vi_1939 = Rotor.new("JPGVOUMFYQBENHZRDKASXLICTW")
+vii_1939 = Rotor.new("NZJHGRCXMYSWBOUFAIVLPEKQDT")
+viii_1939 = Rotor.new("FKQHTLXOCBJSPDZRAMEWNIUYGV")
 
+#5.times print i_1930.rotate 
+#i_1930.position?
 
