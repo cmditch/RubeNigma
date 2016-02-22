@@ -34,3 +34,5 @@ end
 $i_1930 = ["E","K","M","F","L","G","D","Q","V","Z","N","T","O","W","Y","H","X","U","S","P","A","I","B","R","C","J"]
 rotor1 = Rotor.new($i_1930)
 
+
+#not done yet
