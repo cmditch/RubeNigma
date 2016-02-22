@@ -3,9 +3,7 @@ class Rotor
 		#calling dup so the original rotor remains unrotated
         @rotor_array = rotor_array.dup 
 		#Creating another to aid the reset, no reason found to make it clone rather than dup though.
-        @reset_rotor = rotor_array.clone 
-		
-		
+        @reset_rotor = rotor_array.clone 	
     end
     
 	#Resets the wheel to it's orginal positon.
