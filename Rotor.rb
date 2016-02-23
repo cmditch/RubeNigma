@@ -15,7 +15,7 @@ class Rotor
     end
     
 	#Rotates the wheel. Moves the last letter to the beginning of the array.
-    def rotate
+    def rotate(*n) #add optional argument for rotation amount with default of 1
         @position += 1
         @rotor_array << @rotor_array.shift
     end
@@ -33,8 +33,8 @@ class Rotor
     def position?
         print "The wheel has "
 		  if @position / 26 == 0
-          print "not rotated at all, "
-          elsif @position / 26  <= 1.99
+          print "not yet fully rotated, "
+          elsif @position / 26  == 1
           print "rotated once "
           else 
           print "rotated #{@position / 26} times, "
@@ -42,10 +42,22 @@ class Rotor
 		print "and is at position #{@position % 26}. \n"
 	end
     
-    def encrypt
-    #array.each_index {|index| puts "#{index}: #{array[index]}" }
+    def status
+        @rotor_array
     end
 end
+
+def format(msg_string)
+    msg_string.upcase.gsub!(/\W/, "").split("")
+end
+    
+def encrypt
+    #array.each_index {|index| puts "#{index}: #{array[index]}" }
+end
+
+message = "This is a test for enigma."
+pre_encrypted_msg = format(message)
+print pre_encrypted_msg
 
 ic_1924 = Rotor.new("DMTWSILRUYQNKFEJCAZBPGXOHV")
 i_1930 = Rotor.new("EKMFLGDQVZNTOWYHXUSPAIBRCJ")
