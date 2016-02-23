@@ -8,7 +8,6 @@
 #By Coury Ditch
 
 
-
 class Rotor
 
     def initialize(rotor_string)
@@ -16,7 +15,7 @@ class Rotor
         #Creating another to aid the reset, no reason found to make it clone rather than dup though.
         @reset_rotor = @rotor_array.dup
         @rotor_hash = Hash.new
-    	@position = 0
+        @position = 0
     end
     
     #Returns the total amount of notches the rotor has turned, one letter being one notch.
@@ -152,27 +151,37 @@ reflector = Rotor.new("ZYXWVUTSRQPONMLKJIHGFEDCBA").hashit.freeze
 
 #        Below is the script to encrypt/decrypt your own messages.
 #
-puts " Welcome to the psuedo-Enimga\n    Monoalphabetic v0.1"
-puts "  Proper version coming soon! "
-print "\nWould you like to encrypt or decrypt?"
-program = gets.chomp.downcase
+puts "        Welcome to the psuedo-Enimga\n             Monoalphabetic v0.1"
+puts "             Created by C.Ditch"
+puts "         Proper version coming soon! "
+print "\n\n(1) Encrypt, (2) Decrypt:"
+program = gets.chomp.to_i
 
 case program
-when "encrypt"
-    puts "Enter your plaintext (text only plz, no numbers,and more than one word!): "
-    og_message = gets.chomp
-    og_message = format_encrypt(og_message)
+when 1
+    puts "\n\nEnter your plaintext: (text only plz, no numbers) "
+    og_message = format_encrypt(gets.chomp)
     puts "Here is your encrypted text!\n\n"
     print encrypt(og_message, i_1930.hashit)
-  when "decrypt"
-  puts "Enter encoded text: "
-    ciphertext = gets.chomp
-    ciphertext = format_decrypt(ciphertext)
+  when 2
+  puts "Enter encoded text: "  
+    ciphertext = format_decrypt(gets.chomp)
     puts "Here is your decrypted message!\n\n"
     print encrypt(ciphertext, i_1930.hashit.invert).to_s.downcase  
   else
-  puts "\nSorry I didn't understand you? \nIt\'s \'encrypt\' or \'decrypt\', run it again foo!"
+  puts "\nCome again? \nIt\'s simple...\n\'1\' encrypt\' or \'2\' decrypt\', run it again!"
 end
 
 #The End.
 
+#Still trying to get this to work.
+#print "\n\n\n Again?"
+#exit? = gets.chomp.downcase
+#  if exit? == "yes" || "y"
+#    main
+#  elsif exit? == "no" || "n"
+#    "Bye!"
+#  else 
+#  "Wasn't yes or no. Whatever... bye!"
+#  end
+    
