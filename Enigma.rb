@@ -85,12 +85,12 @@ def main
       $nonce_ii += 1
 
       #Arbitrary values to rotate each rotor
-      if $nonce_ii / rand(20) == 1
+      if $nonce_ii / 5 == 1
         $rotor_ii.rotate
         $nonce_ii = 0
       end
         
-      if $nonce_i / rand(50) == 1
+      if $nonce_i / 17 == 1
         $rotor_i.rotate
         $nonce_i = 0
       end
