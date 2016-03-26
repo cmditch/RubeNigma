@@ -6,16 +6,16 @@
 #  Unlike actual Enimga, this includes Upper and Lowercase letters, 
 #             some punctuation - !?.,':;- - and spaces. 
 #
+#
 
 class Rotor
 Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!?;:-.,'\" 1234567890"
 
     def initialize(rotor_string)
-        @rotor_array = rotor_string.split("").dup  #calling dup so the original rotor remains unrotated
+        @rotor_array = rotor_string.split("").dup  #Calling dup so the original rotor remains unrotated
         #Creating another to aid the reset, no reason found to make it clone rather than dup though.
         @reset_rotor = @rotor_array.dup
         @rotor_hash = Hash.new
-        @clicks = 0
         @current_letter = "A"
         @position = 0        
     end
@@ -35,13 +35,9 @@ Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!?;:-.,'\" 12345678
     #Includes option argument to rotate array (n) number of times.
     def rotate(n=1)
       if n == 1
-        @clicks += 1
-        @position += 1
         @rotor_array << @rotor_array.shift
       else
         n.times do
-          @clicks += 1
-          @position += 1
           @rotor_array << @rotor_array.shift
         end
       end
@@ -62,8 +58,9 @@ Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!?;:-.,'\" 12345678
     self.reset
     self.rotate(x)
     end     
-      
-end # End of Rotor class.
+
+end 
+# End of Rotor class.
 
 
 def main
