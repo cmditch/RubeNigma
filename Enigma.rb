@@ -149,6 +149,8 @@ def main
       print "\nRun the 'Virtual Enigma' again?\n\n(1) Yes\n(2) No\n"
       repeat = gets.chomp.to_i
 
+
+    #Requests to run-again? or exit, and clears screen each time (adds 60 lines).
     case repeat
       when 1
         60.times do print "\n" end
