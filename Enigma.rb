@@ -7,58 +7,7 @@
 #             some punctuation - !?.,':;- - and spaces. 
 #
 #
-
-class Rotor
-  Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!?;:-.,'\" 1234567890"
-    def initialize(rotor_string)
-        @rotor_array = rotor_string.split("").dup  #Calling dup so the original rotor remains unrotated
-        #Creating another to aid the reset, no reason found to make it clone rather than dup though.
-        @reset_rotor = @rotor_array.dup
-        @rotor_hash = Hash.new
-        @position = 0
-    end
-    
-    #Places the current state of the rotor into a hash corresponding to it's plaintext equivalent.
-    def hashit
-      n = 0
-      Chars.split("").each do |x|
-       @rotor_hash[x] = @rotor_array[n]
-       n += 1
-      end  
-      @rotor_hash
-    end 
-    
-    #Rotates the wheel. Moves the last letter to the beginning of the array.
-    #Includes option argument to rotate array (n) number of times.
-    def rotate(n=1)
-      if n == 1
-        @rotor_array << @rotor_array.shift
-      else
-        n.times do
-          @rotor_array << @rotor_array.shift
-        end
-      end
-      @rotor_array
-    end          
-        
-    #Resets the rotor wheel to it's orginal positon.
-    def reset
-        @rotor_array = @reset_rotor.dup
-    end    
-
-    #Returns the current rotor state.
-    def rotor_array
-        @rotor_array
-    end
-
-    def set(x)
-    self.reset
-    self.rotate(x)
-    self.hashit
-    end  
-
-end 
-# End of Rotor class.
+require './rotor'
 
 def main
   $rotor_i = Rotor.new(  "EKMFLGtowyh.xbrcjD!QV'ZNT,OW YH1X2?3U4S5u6s7p8a9;i0\"P:-AIBRCJekmflgdqvzn")
@@ -143,4 +92,5 @@ def main
   run_again?
 
 end
+
 main
